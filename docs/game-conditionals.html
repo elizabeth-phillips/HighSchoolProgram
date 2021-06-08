@@ -1,0 +1,126 @@
+--- 
+layout: default
+--- 
+
+<h1> Adding conditionals to the game!</h1>
+<p>We left off getting the user's x,y coordinates of where the player clicked.  We're going to use our new found knowledge of conditionals to figure out if the user clicked on a row, column, or in some other random space.</p>
+<pre><code class="python language-python">
+    def handle_click(e):
+        print("someone clicked", e.x, e.y)
+</code></pre>
+
+<h2>Add Logical Grid Position</h2>
+<p>We're going to start by transforming the x,y coordinates to a logical position on our grid. <br>
+Let's create a function that will accept x,y coordinates and return two value: 
+<ul>
+    <li>Did the click occur on a line?  Boolean</li>
+    <li>Was it a row or a column? String</li>
+    <li>Where in the grid did the player click? Numberical Grid Position</li>
+</ul></p>
+
+<p>Create a function called get_logical_position and pass the x,y coordinates to it. <br>
+<pre><code class="python language-python">
+
+# .... 
+def get_logical_position(x, y):
+  print(x,y)
+
+def handle_click(e):
+  get_logical_position(e.x, e.y)
+</code></pre>
+
+<h3>Get logical position</h3>
+ </p>
+<p>Add the following to the <code>get_logical_position</code> function:</p>
+<pre><code class="python language-python">
+    xlog = (x - 25) // 50
+    ylog = (y - 25) // 50
+</code></pre>
+<p>
+    For each coordinate we start by subtracting the margin of 25px, then divide the board up by half the distance between dots (50px).  We get a whole number grid that looks like this:
+</p>
+<p><img src="./images/grid_positions.png" /></p>
+<p> Now we can determine which col or row was selected! Notice how all the rows have (odd, even) coordinates and the columns have (even, odd) coordinates.</p>
+<p>
+    Finish writing the <code>get_logical_position</code> function so that:
+    - if a row was selected the function returns the logical coordinates [xlog, ylog], and "row"
+    - if a column was selected the function returns the logical coordinates [xlog, ylog] and "col"
+    - if neither a row or column was selected the function returns an empty list [] and an empty string.
+    <b>Hint:</b> This function is make a little easier by utilizing the following function:
+    <pre><code class="python language-python">
+        def isEven(n): 
+            return n % 2 == 0
+    </code></pre>
+</p>
+
+<h2>Tracking Game Status</h2>
+<p>So now we know where the player is clicking and what line if any they clicked on. Here's what we need to do next in our handle click function:
+    <ol>
+        <li>If click is not a row or col, then return.</li>
+        <li>If the line is unmarked, we need to mark it</li>
+        <li>If it completes a box, shade it and give a point or points to the current player.</li>
+        <li>Change player turns if no box was completed.</li>
+        <li>If it ends the game, show the final score.</li>
+    </ol>
+</p>
+<p>
+    Go ahead and write the conditional statement to return from the function if the click is NOT a row or col.
+</p>
+
+<h2>Game Status</h2>
+<p>
+    To kick off tracking the game status we're going to add two variables to the top of the file with the other variables.
+</p>
+<pre><code class="python language-python">
+    player_turn = 1;
+    player1_points = 0
+    player2_points = 0
+    marked_lines = []
+
+    # The following will help track which lines belong to a box and determining if a box has been completed.
+    box0 = [[1,0],[2,1],[1,2],[0,1]]
+box1 = [[3,0],[4,1],[3,2],[2,1]]
+box2 = [[5,0],[6,1],[5,2],[4,1]]
+box3 = [[7,0],[8,1],[7,2],[6,1]]
+box4 = [[9,0],[10,1],[9,2],[8,1]]
+box5 = [[1,2],[2,3],[1,4],[0,3]]
+box6 = [[3,2],[4,3],[3,4],[2,3]]
+box7 = [[5,2],[6,3],[5,4],[4,3]]
+box8 = [[7,2],[8,3],[7,4],[6,3]]
+box9 = [[9,2],[10,3],[9,4],[8,3]]
+box10 = [[1,4],[2,5],[1,6],[0,5]]
+box11 = [[3,4],[4,5],[3,6],[2,5]]
+box12 = [[5,4],[6,5],[5,6],[4,5]]
+box13 = [[7,4],[8,5],[7,6],[6,5]]
+box14 = [[9,4],[10,5],[9,6],[8,5]]
+box15 = [[1,6],[2,7],[1,8],[0,7]]
+box16 = [[3,6],[4,7],[3,8],[2,7]]
+box17 = [[5,6],[6,7],[5,8],[4,7]]
+box18 = [[7,6],[8,7],[7,8],[6,7]]
+box19 = [[9,6],[10,7],[9,8],[8,7]]
+box20 = [[1,8],[2,9],[1,10],[0,9]]
+box21 = [[3,8],[4,9],[3,10],[2,9]]
+box22 = [[5,8],[6,9],[5,10],[4,9]]
+box23 = [[7,8],[8,9],[7,10],[6,9]]
+box24 = [[9,8],[10,9],[9,10],[8,9]]
+boxes = [box0, box1, box2, box3, box4, box5, box6, box7, box8, box9, box10, box11, box12, box13, box14, box15, box16, box17, box18, box19, box20, box21, box22, box23, box24]
+</code></pre>
+
+<h2>Marking the lines</h2>
+<p>Create a function called <code>mark_line</code> that accepts the logical postion and the type(row or column) and is called when a player clicks on a line.  It should mark with that player's color.</p>
+
+<h2>Shading a box</h2>
+<p>create two functions:
+    <ol>
+        <li>shade_box: given a list of four coordinates that completes a box, will shade the current player's light color.</li>
+        <li>check_completes_box: accepts logical position, turns how many boxes were completed.  Calls <code>shade_box</code> when appropriate.</li>        
+    </ol>
+</p>
+
+<h2>Incrementing a player's points</h2>
+<p>The handle click function should receive from the <code>check_completes_box</code> how many boxes were shaded.  The current player's score should be incremented that many times.  If no boxes were shading, the turn should change to the other player. </p>
+
+<h2>Displaying turn and score</h2>
+<p>A text on the top of the board should show who's turn it is, and another text should show the current score.</p>
+<h2>Game Over</h2>
+<p>Determine when the game is over.  Hint: Check the length of the <code>marked_lines</code> list. When the game is over, at the top center, display who won or if it is a tie.</p>

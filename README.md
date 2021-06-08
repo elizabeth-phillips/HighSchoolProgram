@@ -1,54 +1,60 @@
 # OrangeMethod High School Program
 
-Curriculum can be found at [https://elizabeth-phillips.github.io/HighSchoolProgram/](https://elizabeth-phillips.github.io/HighSchoolProgram/index.html)
+Curriculum can be found [here](https://erinwoodrum.github.io/High-School-Program/)
 
 ## Schedule
 
-### Terminal Intro
+### Introductions
+1.  Who we are
+2.  Who you are, where you live, why you're here and what you expect to get out of this course?
+3.  If you could build any automated system or robot, What would it do? 
+4.  What technologies do we use here at HD? 
+5.  We're going to teach you Python b/c of its simple to understand syntax makes it a great first language. 
+    * Python is an interpretted language.  What does that mean? 
+6.  Introduce the game you'll create by the end of the week. TODO: LINK final simplified game here. 
 
-1.   [Introduction to Mac and the terminal](./docs/mac-terminal.html)
-2.   [A New Terminal](./docs/a-new-terminal.html)
-
-### git
-
-1. [History of Version Control](./docs/vc-history.html)
-2. [Git Set Up](./docs/git-setup.html)
-3. [Gitting Started](./docs/gitting-started.html)
-   * [Gitting Started Labs](./docs/gitting-started-labs.html)
+### repl.it
+1. Show repl.it - Stands for read-eval-print loop
+2. Create your first program:  Print "Hello World". 
 
 ### GitHub
 
-1. [GitHub](./docs/github-intro.html)
-2. [GitHub Labs](./docs/github-intro-lab.html)
+1. GitHub Intro
+2. Create your own GitHub Org. 
+3. GitHub Lab - push your Hello World to your new Github Org. 
 
 ### Python Introduction
-
-1. [Pycharm Setup](./docs/pycharm-setup.html)
+1. [Comments](./docs/comments.html)
 2. [Math Operators](./docs/math-operators.html)
 3. [Variables](./docs/variables.html)
    * [Variables Labs](./docs/variables-labs.html)
-4. [Math Functions](./docs/math-functions.html)
-5. [Print Function](./docs/print-function.html)
-   * [Print Function Labs](./docs/print-function-labs.html)
-6. [Formatting and Input](./docs/formatting-and-input.html)
-   * [Formatting and Input Lab](./docs/formatting-and-input-labs.html)
-7. [Comments](./docs/comments.html)
-8. [Booleans](./docs/booleans.html)
-   * [Boolean Labs](./docs/boolean-labs.html)
-9.  [Functions](./docs/functions.html)
-    * [Function Labs](./docs/functions-labs.html)
-10.  [Strings](./docs/strings.html)
-    * [String Labs](./docs/strings-labs.html)
-11. [Data Structures](./docs/data-structures.html)
+   * [Game Variables](./docs/game-variables.html)
+4. [TKINTER Intro](./docs/tkinter)
+    * [tkinter Lab](./docs/tkinter-lab.html)
+    * [Game TKINTER](./docs/game-tkinter.html)
+5. [Data Structures](./docs/data-structures.html) (lists only)
     * [Data Structure Labs](./docs/data-structures-labs.html)
-12. [Loops](./docs/loops.html)
-    * [Loop Labs](./docs/loops-labs.html)
-13. [Conditional Statements](./docs/conditional-statements.html)
+6. [Loops](./docs/loops.html)
+    * [Game Loops](./docs/game-loops.html)
+7.  [Functions](./docs/functions.html)
+    * [Function Labs](./docs/functions-labs.html)
+    * [Game Functions](./docs/game-functions.html)
+8. [Booleans](./docs/booleans.html)
+    * [Boolean Labs](./docs/boolean-labs.html)
+9. [Conditional Statements](./docs/conditional-statements.html)
     * [Conditional Statement Labs](./docs/conditional-statements-labs.html)
-14. [Classes](./docs/classes.html)
+    * [Game Conditionals](./docs/game-conditionals.html) 
+
+
+#### Bonus
+-  [Strings](./docs/strings.html)
+    * [String Labs](./docs/strings-labs.html)
+- [Print Function](./docs/print-function.html)
+   * [Print Function Labs](./docs/print-function-labs.html)
+- [Formatting and Input](./docs/formatting-and-input.html)
+   * [Formatting and Input Lab](./docs/formatting-and-input-labs.html)
+- [Math Functions](./docs/math-functions.html)
+- Build A Magic 8 Ball game. 
+
+- [Classes](./docs/classes.html)
     * [Classes Labs](./docs/classes-labs.html)
-
-### PyGame
-
-1. [Pygame Intro](./docs/pygame-intro.html)
-2. [Pygame Input](./docs/pygame-input.html)
